@@ -30,10 +30,10 @@ aplication: aplication.cpp
 run_all: all
 	gnome-terminal -- bash -c "./senzor; exec bash"
 	gnome-terminal -- bash -c "./ventilator; exec bash"
-	gnome-terminal -- bash -c "./mikrokontroler; exec bash"
+# 	gnome-terminal -- bash -c "./mikrokontroler; exec bash"
 	gnome-terminal -- bash -c "./sirena; exec bash"
 	gnome-terminal -- bash -c "./aplication; exec bash"
 
-# Očisti sve binarke i objekt fajlove
+# Ocisti sve binarke i objekt fajlove
 clean:
 	rm -f $(BINARIES) *.o

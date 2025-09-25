@@ -16,7 +16,7 @@ private:
     int cars;
     double temperature;
     int co;
-    int fanSpeed;               // više nema globalnog speed_fan
+    int fanSpeed;               // vise nema globalnog speed_fan
 
     std::mt19937 gen1;
     std::mt19937 gen2;
@@ -65,7 +65,7 @@ public:
         try {
             client.set_callback(cb);
             client.connect()->wait();
-            client.subscribe("actuators/fan", 1)->wait();
+            client.subscribe("simulation/fan", 1)->wait();
             std::cout << "[TUNNEL] Subscribed to 'actuators/fan'" << std::endl;
         } catch (const mqtt::exception& exc) {
             std::cerr << "[TUNNEL] MQTT error: " << exc.what() << std::endl;

@@ -19,7 +19,7 @@ std::mutex data_mutex;
 int calculateFanSpeed(double temp, int co) {
     int speed = 0;
 
-    // Počinje da radi ako je temperatura > 35°C
+    // Pocinje da radi ako je temperatura > 35
     if(temp > 35) 
         speed = static_cast<int>((temp - 35) * 10);
 
@@ -47,11 +47,13 @@ void ssdpNotify(const std::string& usn, const std::string& nt){
     addr.sin_port = htons(1900);
     inet_pton(AF_INET, "239.255.255.250", &addr.sin_addr);
 
-    std::string msg = "NOTIFY * HTTP/1.1\r\n"
-                      "HOST: 239.255.255.250:1900\r\n"
-                      "NT: "+nt+"\r\n"
-                      "NTS: ssdp:alive\r\n"
-                      "USN: "+usn+"\r\n\r\n";
+    std::string msg = 
+        "NOTIFY * HTTP/1.1\r\n"
+        "HOST: 239.255.255.250:1900\r\n"
+        "NT: " + nt + "\r\n"
+        "NTS: ssdp:alive\r\n"
+        "USN: " + usn + "\r\n"
+        "LOCATION: http://10.1.207.138/desc.xml\r\n\r\n";
 
     while(true){
         sendto(sock, msg.c_str(), msg.size(), 0, (sockaddr*)&addr, sizeof(addr));
@@ -82,7 +84,7 @@ public:
 
 int main(){
     std::cout<<"MIKROKONTROLER"<<std::endl;
-    const std::string SERVER_ADDRESS("tcp://localhost:1883");
+    const std::string SERVER_ADDRESS("tcp://10.1.145.71");
     const std::string CLIENT_ID("Microcontroller");
 
     mqtt::async_client client(SERVER_ADDRESS, CLIENT_ID);
@@ -108,6 +110,12 @@ int main(){
 
             json fanMsg = { {"fanSpeed", fanSpeed} };
             client.publish("actuators/fan", fanMsg.dump(), 1, false);
+
+            json coMsg = { {"co", co} };
+            client.publish("controler/co", coMsg.dump(), 1, false);
+
+            json tempMsg = { {"temp", temperature} };
+            client.publish("controler/temp", tempMsg.dump(), 1, false);
 
             json buzzerMsg = { {"buzzer", buzzerOn} };
             client.publish("actuators/buzzer", buzzerMsg.dump(), 1, false);
