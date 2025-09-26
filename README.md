@@ -1,9 +1,11 @@
 # Bežični sistem za nadzor tunela  
 
 ## Pregled
-Ovaj projekat implementira bežični sistem za nadzor zdravlja tunela.  
+
+Ovaj projekat implementira bežični sistem za nadzor tunela.  
 
 ## Uređaji za simulaciju sistema
+
 1. **Raspberry Pi** : koristi se za simuliranje **mikrokontrolera**
 2. **Računar**: Koristi se za simuliranje **korisničke aplikacije**, **senzora** (co senzor i temperaturni senzor) i **aktuatora** (ventilator i sirena).  
 
@@ -18,7 +20,7 @@ Ovaj projekat implementira bežični sistem za nadzor zdravlja tunela.
    make all
    ```
 
-1. **Raspberry PI**
+2. **Raspberry PI**
 
    U Makefile-u postavite standard jezika std=c++11.
    ```bash
@@ -27,6 +29,7 @@ Ovaj projekat implementira bežični sistem za nadzor zdravlja tunela.
    ```
 
 ### Korak 2: Pokretanje mikrokontrolera
+
    U terminalu na Raspberry Pi uređaju izvršite:
    ```bash
    ./mikrokontroler
@@ -41,6 +44,7 @@ Ovaj projekat implementira bežični sistem za nadzor zdravlja tunela.
    Na ovaj način pokrećete sve uređaje, osim mikrokontrolera, u različitim terminalima.
 
 ## Struktura projekta
+
 - `mikrokontroler.cpp` - Kod mikrokontroler
 - `senzor.cpp` - Kod senzora (temperaturni i co)
 - `sirena.cpp` - Kod aktuatora (sirene)
