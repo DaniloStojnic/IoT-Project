@@ -14,7 +14,6 @@ Ovaj projekat implementira bežični sistem za nadzor tunela.
 
 1. **Računar**
    
-   U Makefile-u postavite standard jezika std=c++11.
    ```bash
    make clean  # Opciono, ako želite početi od nule
    make all
@@ -22,10 +21,12 @@ Ovaj projekat implementira bežični sistem za nadzor tunela.
 
 2. **Raspberry PI**
 
-   U Makefile-u postavite standard jezika std=c++17.
    ```bash
-   make clean  # Opciono, ako želite početi od nule
-   make all
+   g++ mikrokontroler.cpp -o mikrokontroler \
+    -I/usr/local/include -I/usr/local/include/paho-mqttpp3 \
+    -L/usr/local/lib -lpaho-mqttpp3 -lpaho-mqtt3as \
+    -std=c++17 -pthread
+   export LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
    ```
 
 ### Korak 2: Pokretanje projekta
