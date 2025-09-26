@@ -14,7 +14,7 @@ Ovaj projekat implementira bežični sistem za nadzor tunela.
 
 1. **Računar**
    
-   U Makefile-u postavite standard jezika std=c++17.
+   U Makefile-u postavite standard jezika std=c++11.
    ```bash
    make clean  # Opciono, ako želite početi od nule
    make all
@@ -22,7 +22,7 @@ Ovaj projekat implementira bežični sistem za nadzor tunela.
 
 2. **Raspberry PI**
 
-   U Makefile-u postavite standard jezika std=c++11.
+   U Makefile-u postavite standard jezika std=c++17.
    ```bash
    make clean  # Opciono, ako želite početi od nule
    make all
