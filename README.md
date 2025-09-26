@@ -28,20 +28,23 @@ Ovaj projekat implementira bežični sistem za nadzor tunela.
    make all
    ```
 
-### Korak 2: Pokretanje mikrokontrolera
+### Korak 2: Pokretanje projekta
 
-   U terminalu na Raspberry Pi uređaju izvršite:
+1. **Računar**
+
+  U terminalu izvršite sljedeću naredbu:
    ```bash
    ./mikrokontroler
    ```
+   Na ovaj način pokrećete mikrokontroler.
 
-### Korak 3: Pokretanje korisničke aplikacije, aktuatora i senzora
+2. **Raspberry PI**
 
-   U terminalu na računaru izvršite:
+   U terminalu izvršite sljedeću naredbu:
    ```bash
    make run_all
    ```
-   Na ovaj način pokrećete sve uređaje, osim mikrokontrolera, u različitim terminalima.
+   Na ovaj način pokrećete korisničku aplikaciju, akutatore (ventilator i sirenu) i senzore, u različitim terminalima.
 
 ## Struktura projekta
 
