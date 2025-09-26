@@ -16,7 +16,7 @@ Ovaj projekat implementira bežični sistem za nadzor tunela.
    
    ```bash
    make clean  # Opciono, ako želite početi od nule
-   make all
+   make
    ```
 
 2. **Raspberry PI**
