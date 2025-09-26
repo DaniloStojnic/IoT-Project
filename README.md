@@ -32,7 +32,7 @@ Ovaj projekat implementira bežični sistem za nadzor tunela.
 
 1. **Računar**
 
-  U terminalu izvršite sljedeću naredbu:
+   U terminalu izvršite sljedeću naredbu:
    ```bash
    ./mikrokontroler
    ```
